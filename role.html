@@ -1,0 +1,121 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Role Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            min-height: 50px;
+        }
+        .role-1 { color: red; background-color: #ffebee; }
+        .role-2 { color: #ff5722; background-color: #fff3e0; }
+        .role-3 { color: #000; background-color: #e0e0e0; }
+        .role-4 { color: #4caf50; background-color: #e8f5e9; }
+        .role-5 { color: #9c27b0; background-color: #f3e5f5; }
+        .role-6 { color: #2196f3; background-color: #e3f2fd; }
+        .role-7 { color: #607d8b; background-color: #eceff1; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Role Generator</h1>
+        <p>Cek status murid di x tkj 2!</p>
+        
+        <input type="text" id="nameInput" placeholder="Masukkan penis(nama) kamu...">
+        <button onclick="generateRole()">Generate Role</button>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function generateRole() {
+            const name = document.getElementById('nameInput').value.trim();
+            const resultDiv = document.getElementById('result');
+            
+            if (!name) {
+                resultDiv.textContent = "Silakan masukkan nama terlebih dahulu!";
+                resultDiv.className = "";
+                return;
+            }
+            
+            // Generate random number between 1-7
+            const randomRole = Math.floor(Math.random() * 7) + 1;
+            
+            // Remove all classes
+            resultDiv.className = "";
+            
+            // Add the appropriate class based on role
+            resultDiv.classList.add(`role-${randomRole}`);
+            
+            // Set the result text based on the random role
+            switch(randomRole) {
+                case 1:
+                    resultDiv.textContent = `${name}, kamu 100% China! 🇨🇳`;
+                    break;
+                case 2:
+                    resultDiv.textContent = `${name}, kamu standar TikTok! 🎥`;
+                    break;
+                case 3:
+                    resultDiv.textContent = `${name}, terdeteksi hitam! ⚫`;
+                    break;
+                case 4:
+                    resultDiv.textContent = `${name}, kamu agam ya! ☪️`;
+                    break;
+                case 5:
+                    resultDiv.textContent = `${name}, you are femboy final boss! 🏳️‍🌈`;
+                    break;
+                case 6:
+                    resultDiv.textContent = `${name}, jomok lu! 😂`;
+                    break;
+                case 7:
+                    resultDiv.textContent = `${name}, but bit si raja karbit bit! 🔥`;
+                    break;
+                default:
+                    resultDiv.textContent = "Error: Role tidak ditemukan!";
+            }
+        }
+    </script>
+</body>
+</html>
